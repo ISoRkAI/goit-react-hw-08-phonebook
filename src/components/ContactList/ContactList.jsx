@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import css from './ContactList.module.css';
-import { deleteContacts } from 'redux/contactsOperation';
+import { deleteContacts } from 'redux/contacts/contactsOperation';
 const ContactList = ({ filter }) => {
   const dispatch = useDispatch();
 
   return (
     <ul className={css.list}>
       {filter.length > 0 &&
-        filter.map(({ id, name, phone }) => (
+        filter.map(({ id, name, number }) => (
           <li className={css.item} key={id}>
             <p className={css.text}>
-              {name}: {phone}
+              {name}: {number}
             </p>
             <button
               className={css.btnDelete}

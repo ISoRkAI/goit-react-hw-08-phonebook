@@ -4,9 +4,9 @@ import {
   fetchContacts,
   deleteContacts,
   addContacts,
-} from 'redux/contactsOperation';
+} from 'redux/contacts/contactsOperation';
 
-export const contactSlice = createSlice({
+export const ContactSlice = createSlice({
   name: 'contacts',
   initialState: {
     entities: [],
@@ -72,4 +72,4 @@ export const contactSlice = createSlice({
     },
   },
 });
-export default contactSlice.reducer;
+export default ContactSlice.reducer;
