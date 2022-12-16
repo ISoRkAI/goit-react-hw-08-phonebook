@@ -1,0 +1,13 @@
+.itemList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.item {
+  list-style: none;
+}
+.link {
+  text-decoration: none;
+}
