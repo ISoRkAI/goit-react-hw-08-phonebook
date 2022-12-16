@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import * as authOperation from '../redux/auth/authOperation';
 
-const Register = () => {
+import * as authOperation from '../../redux/auth/authOperation';
+
+import css from './Login.module.css';
+
+const Login = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleCange = ({ target: { name, value } }) => {
     switch (name) {
-      case 'name':
-        return setName(value);
       case 'email':
         return setEmail(value);
       case 'password':
@@ -23,24 +23,13 @@ const Register = () => {
 
   const formSubmit = e => {
     e.preventDefault();
-    dispatch(authOperation.register({ name, email, password }));
-    setName('');
+    dispatch(authOperation.logIn({ email, password }));
     setEmail('');
     setPassword('');
   };
-
   return (
-    <div>
-      <h1>Register</h1>
+    <main className={css.container}>
       <form onSubmit={formSubmit}>
-        <p>Name</p>
-        <input
-          placeholder="Jacob Mercer"
-          type="text"
-          name="name"
-          required
-          onChange={handleCange}
-        />
         <p>Mail</p>
         <input
           autoComplete="on"
@@ -60,9 +49,9 @@ const Register = () => {
           required
           onChange={handleCange}
         />
-        <button type="submit">Sign up</button>
+        <button type="submit">Log in</button>
       </form>
-    </div>
+    </main>
   );
 };
-export default Register;
+export default Login;

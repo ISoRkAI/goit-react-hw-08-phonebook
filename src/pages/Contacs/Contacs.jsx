@@ -1,13 +1,15 @@
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { contactFilter } from 'redux/filter/filterSlice';
 import shortid from 'shortid';
-import css from '../components/App/App.module.css';
-import * as contactsOperations from '../redux/contacts/contactsOperation';
+
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactList from 'components/ContactList/ContactList';
+import Filter from 'components/Filter/Filter';
+import { contactFilter } from 'redux/filter/filterSlice';
+import * as contactsOperations from '../../redux/contacts/contactsOperation';
+
+import css from './Contacs.module.css';
 
 const Contacs = () => {
   const contacts = useSelector(state => state.contacts.entities);
@@ -38,7 +40,7 @@ const Contacs = () => {
     dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
   return (
-    <>
+    <main className={css.container}>
       <div className={css.container}>
         <h1>Phonebook</h1>
         <ContactForm addContact={addContact} />
@@ -47,7 +49,7 @@ const Contacs = () => {
         <ContactList filter={filterContact} />
       </div>
       <Outlet />
-    </>
+    </main>
   );
 };
 export default Contacs;
