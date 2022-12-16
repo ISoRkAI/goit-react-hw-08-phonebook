@@ -21,7 +21,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route path="/goit-react-hw-08-phonebook" element={<Home />} />
         <Route
           path="/contacts"
           element={<PrivateRoute redirectTo="/login" component={Contacs} />}
