@@ -29,6 +29,7 @@ const Login = () => {
   };
   return (
     <main className={css.container}>
+      <h1>Log In</h1>
       <form onSubmit={formSubmit}>
         <p>Mail</p>
         <input

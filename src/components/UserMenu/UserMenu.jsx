@@ -8,9 +8,11 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
   return (
-    <div className={css.userMenu}>
-      <p>Welcome, {name}</p>
-      <button onClick={() => dispatch(logOut())}>Log out</button>
+    <div className={css.userlist}>
+      <p className={css.text}>Welcome, {name}</p>
+      <button className={css.button} onClick={() => dispatch(logOut())}>
+        Log out
+      </button>
     </div>
   );
 };
