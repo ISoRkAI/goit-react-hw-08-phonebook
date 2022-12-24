@@ -24,34 +24,47 @@ const Login = () => {
   const formSubmit = e => {
     e.preventDefault();
     dispatch(authOperation.logIn({ email, password }));
+    e.currentTarget.reset();
     setEmail('');
     setPassword('');
   };
   return (
     <main className={css.container}>
-      <h1>Log In</h1>
-      <form onSubmit={formSubmit}>
-        <p>Mail</p>
-        <input
-          autoComplete="on"
-          placeholder="JacobMercer@gmail.com"
-          type="email"
-          name="email"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={handleCange}
-        />
-        <p>Password</p>
-        <input
-          autoComplete="off"
-          type="password"
-          name="password"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          onChange={handleCange}
-        />
-        <button type="submit">Log in</button>
-      </form>
+      <div className={css.loginBox}>
+        <h1 className={css.text}>Log In</h1>
+        <form onSubmit={formSubmit}>
+          <div className={css.userBox}>
+            <input
+              autoComplete="off"
+              type="email"
+              name="email"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              onChange={handleCange}
+            />
+            <label>Mail</label>
+          </div>
+          <div className={css.userBox}>
+            <input
+              autoComplete="off"
+              type="password"
+              name="password"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+              onChange={handleCange}
+            />
+            <label>Password</label>
+          </div>
+
+          <button className={css.button} type="submit">
+            <span className={css.top}></span>
+            <span className={css.right}></span>
+            <span className={css.bottom}></span>
+            <span className={css.left}></span>
+            Log in
+          </button>
+        </form>
+      </div>
     </main>
   );
 };

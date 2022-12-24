@@ -10,6 +10,10 @@ export const Navigation = () => {
     <ul className={css.itemList}>
       <li className={css.item}>
         <NavLink className={css.link} to={'goit-react-hw-08-phonebook'}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
           Home
         </NavLink>
       </li>
@@ -17,6 +21,10 @@ export const Navigation = () => {
         <li className={css.item}>
           <NavLink className={css.link} to={'contacts'}>
             Contacts
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </NavLink>
         </li>
       ) : (
